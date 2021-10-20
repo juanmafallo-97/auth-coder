@@ -11,8 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "connect-mongo": "^4.6.0",
-    "connect-mongodb-session": "^3.1.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
@@ -20,7 +19,6 @@
     "knex": "^0.95.11",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.2",
-    "node-fetch": "^3.0.0",
     "passport": "^0.5.0",
     "passport-facebook": "^3.0.0",
     "socket.io": "^4.1.3",
