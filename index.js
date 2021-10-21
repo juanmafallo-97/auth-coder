@@ -2,11 +2,11 @@
 
 const express = require("express");
 const session = require("express-session");
-const passport = require("./src/utils/passport");
 const handlebars = require("express-handlebars");
+require("dotenv").config();
+const passport = require("./src/utils/passport");
 const socketConfig = require("./src/utils/socket");
-const apiRouter = require("./src/routes/api");
-const authRouter = require("./src/routes/auth");
+const router = require("./src/routes");
 const app = express();
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer, {
@@ -14,7 +14,6 @@ const io = require("socket.io")(httpServer, {
     origin: ["http://localhost/4000"]
   }
 });
-require("dotenv").config();
 
 const PORT = process.env.PORT || 4000;
 
@@ -50,12 +49,7 @@ app.engine(
 /*  Config del socket  */
 socketConfig(io);
 
-app.use("/api", apiRouter);
-app.use("/api/session", authRouter);
-
-app.get("/", (req, res) => {
-  res.render("home");
-});
+app.use("/", router);
 
 httpServer.listen(PORT, () =>
   console.log("Servidor activo en puerto: " + PORT)
