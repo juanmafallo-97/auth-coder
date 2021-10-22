@@ -1,4 +1,4 @@
-/* Para que la aplicación funcione se debe tener una base de datos llamada "productsdb" en localhost, y correr los scripts para crear las tablas necesarias */
+/* Para que la aplicación funcione se debe tener una base de datos sql llamada "productsdb" en localhost, correr los scripts para crear las tablas necesarias, y poder conectarse a una base de datos de Mongo llamada productsdb también en localhost, con usuario root y sin contraseña */
 
 const express = require("express");
 const session = require("express-session");

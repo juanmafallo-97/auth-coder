@@ -14,6 +14,8 @@ router.post(
 
 router.get("/failLogin", AuthController.failLogin);
 
+router.get("/logout", AuthController.getLogout);
+
 router.get("/signup", AuthController.getSignup);
 
 router.post(
@@ -35,7 +37,5 @@ router.get(
     failureRedirect: "/auth/failLogin"
   })
 );
-
-router.get("/logout", AuthController.getLogout);
 
 module.exports = router;
