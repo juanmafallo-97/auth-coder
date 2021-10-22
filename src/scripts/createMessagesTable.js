@@ -1,4 +1,4 @@
-const config = require("../sqlite3Config");
+const config = require("../../DB/sqlite3Config");
 const knex = require("knex")(config);
 
 knex.schema

@@ -1,4 +1,4 @@
-const config = require("../mariadbConfig");
+const config = require("../../DB/mariadbConfig");
 const knex = require("knex")(config);
 
 class ProductsController {
