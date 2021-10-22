@@ -14,6 +14,7 @@ const io = require("socket.io")(httpServer, {
     origin: ["http://localhost/4000"]
   }
 });
+require("./DB/mongoConnection");
 
 const PORT = process.env.PORT || 4000;
 

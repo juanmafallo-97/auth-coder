@@ -1,20 +1,41 @@
 <div class="section-container container">
   <h1>Login de Usuario</h1>
   <div class="form-container container">
-    <form id="user-form">
+    <form
+      class="form"
+      role="form"
+      action="/auth/login"
+      method="post"
+      autocomplete="off"
+    >
       <div class="form-group">
-        <label for="username">Ingrese su nombre</label>
         <input
-          type="text"
+          name="username"
+          placeholder="Nombre"
           class="form-control"
-          id="username"
-          placeholder="Nombre..."
+          type="text"
           required
         />
       </div>
-      <div class="m-auto text-center">
-        <button type="submit" class="btn btn-primary m-2">Enviar</button>
+      <div class="form-group">
+        <input
+          name="password"
+          placeholder="Password"
+          class="form-control"
+          type="password"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input class="btn btn-success my-3" type="submit" value="Login" />
       </div>
     </form>
+    <div class="m-auto text-center">
+      <a href="/auth/facebook" class="btn btn-primary m-1"><span
+          class="fa fa-facebook"
+        ></span>
+        Login con Facebook</a>
+    </div>
   </div>
 </div>
