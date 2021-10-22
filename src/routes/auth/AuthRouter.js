@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const path = require("path");
 const passport = require("../../utils/passport");
 const AuthController = require("../../controllers/AuthController");
 
@@ -7,8 +6,10 @@ router.get("/login", AuthController.getLogin);
 
 router.post(
   "/login",
-  passport.authenticate("login", { failureRedirect: "/auth/failLogin" }),
-  AuthController.postLogin
+  passport.authenticate("login", {
+    failureRedirect: "/auth/failLogin",
+    successRedirect: "/"
+  })
 );
 
 router.get("/failLogin", AuthController.failLogin);
@@ -17,8 +18,10 @@ router.get("/signup", AuthController.getSignup);
 
 router.post(
   "/signup",
-  passport.authenticate("signup", { failureRedirect: "/failSignup" }),
-  AuthController.postSignup
+  passport.authenticate("signup", {
+    failureRedirect: "/auth/failSignup",
+    successRedirect: "/"
+  })
 );
 
 router.get("/failSignup", AuthController.failSignup);
@@ -29,13 +32,10 @@ router.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
     successRedirect: "/",
-    failureRedirect: "/session/failLogin"
+    failureRedirect: "/auth/failLogin"
   })
 );
 
-router.get("/failLogin", (req, res) => {
-  console.log("Login error");
-  res.render("login-error", {});
-});
+router.get("/logout", AuthController.getLogout);
 
 module.exports = router;

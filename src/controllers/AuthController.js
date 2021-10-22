@@ -1,5 +1,3 @@
-const path = require("path");
-
 const getLogin = (req, res) => {
   if (req.isAuthenticated()) {
     console.log("Usuario logueado");
@@ -13,10 +11,9 @@ const getLogin = (req, res) => {
   }
 };
 
-const postLogin = (req, res) => {
-  const user = req.user;
-  console.log(user.firstName);
-  res.sendFile(path.resolve() + "/views/index.html");
+const getLogout = (req, res) => {
+  req.logout();
+  res.redirect("/");
 };
 
 const failLogin = (req, res) => {
@@ -25,12 +22,7 @@ const failLogin = (req, res) => {
 };
 
 const getSignup = (req, res) => {
-  res.sendFile(path.resolve() + "/views/signup.html");
-};
-
-const postSignup = (req, res) => {
-  const user = req.user;
-  res.sendFile(path.resolve() + "/views/index.html");
+  res.render("signup");
 };
 
 const failSignup = (req, res) => {
@@ -40,9 +32,8 @@ const failSignup = (req, res) => {
 
 module.exports = {
   getLogin,
-  postLogin,
+  getLogout,
   failLogin,
   getSignup,
-  postSignup,
   failSignup
 };

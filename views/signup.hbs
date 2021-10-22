@@ -1,17 +1,18 @@
-<div class="section-container container">
-  <h1>Login de Usuario</h1>
-  <div class="form-container container">
+<div class="container my-5">
+  <div class="jumbotron">
+    <h1>SIGNUP</h1>
+    <br />
     <form
       class="form"
       role="form"
-      action="/auth/login"
+      action="/auth/signup"
       method="post"
       autocomplete="off"
     >
       <div class="form-group">
         <input
           name="username"
-          placeholder="Nombre"
+          placeholder="Nombre de usuario"
           class="form-control"
           type="text"
           required
@@ -27,15 +28,11 @@
         />
       </div>
 
+      <br />
+
       <div class="form-group">
-        <input class="btn btn-success my-3" type="submit" value="Login" />
+        <input class="btn btn-success my-3" type="submit" value="Singup" />
       </div>
     </form>
-    <div class="m-auto text-center">
-      <a href="/auth/facebook" class="btn btn-primary m-1"><span
-          class="fa fa-facebook"
-        ></span>
-        Login con Facebook</a>
-    </div>
   </div>
 </div>

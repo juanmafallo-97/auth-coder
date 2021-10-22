@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const apiRouter = require("./api");
-const authRouter = require("./auth");
+const apiRouter = require("./api/ApiRouter");
+const authRouter = require("./auth/AuthRouter");
 
 router.get("/", (req, res) => {
   if (req.isAuthenticated()) {
     res.render("home", {
       username: req.user.displayName || req.user.username,
-      foto: req.user.photos[0].value
+      foto: req.user.photos ? req.user.photos[0].value : ""
     });
   } else {
     res.redirect("/auth/login");
